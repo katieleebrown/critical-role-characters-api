@@ -125,6 +125,69 @@ const characters = {
         'campaign': 'Campaign 2',
         'image': 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/270644a2-1efa-407b-a67b-0e3277b53834/dc0xcxs-3c1614f1-5559-44a9-8479-06926f8f1868.png/v1/fill/w_900,h_1148,q_80,strp/_critical_role__yasha_by_hes_per_ides_dc0xcxs-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE0OCIsInBhdGgiOiJcL2ZcLzI3MDY0NGEyLTFlZmEtNDA3Yi1hNjdiLTBlMzI3N2I1MzgzNFwvZGMweGN4cy0zYzE2MTRmMS01NTU5LTQ0YTktODQ3OS0wNjkyNmY4ZjE4NjgucG5nIiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.H9_-bZtPfPgma37W33jbTzQchfMqYuI8RbNc732q6Os'
     },
+    'ashton': {
+        'character': 'Ashton Greymoore',
+        'actor': 'Taliesin Jaffe',
+        'class': 'Barbarian',
+        'campaign': 'Campaign 3',
+        'image': 'https://cdnb.artstation.com/p/assets/images/images/045/643/847/large/rory-mercury-justdon-t.jpg?1643203731'
+    },
+    'bertrand': {
+        'character': 'Bertrand Bell',
+        'actor': 'Travis Willingham',
+        'class': 'Fighter',
+        'campaign': 'Campaign 3',
+        'image': 'https://pbs.twimg.com/media/FCRsuSPVIAAVtdQ.jpg'
+    },
+    'chetney': {
+        'character': `Chetney Pock O'Pea`,
+        'actor': 'Travis Willingham',
+        'class': ['Blood Hunter', 'Rogue'],
+        'campaign': 'Campaign 3',
+        'image': 'https://pbs.twimg.com/media/FGOnzPIVIAIlE73?format=jpg&name=900x900'
+    },
+    'dorian': {
+        'character': 'Dorian Storm',
+        'actor': 'Robbie Daymond',
+        'class': 'Bard',
+        'campaign': 'Campaign 3',
+        'image': 'https://i.pinimg.com/originals/6f/ee/71/6fee71e17f9b22a0d579396b7668d456.jpg'
+    },
+    'fearne': {
+        'character': 'Fearne Calloway',
+        'actor': 'Ashley Johnson',
+        'class': 'Druid',
+        'campaign': 'Campaign 3',
+        'image': 'https://static.wikia.nocookie.net/criticalrole/images/1/1a/Fearne_C3_official_-Hannah_Friederichs.jpg/revision/latest?cb=20211022125518'
+    },
+    'fresh cut grass': {
+        'character': 'Fresh Cut Grass/FCG',
+        'actor': 'Emmy Award Winning Sam Riegel',
+        'class': 'Cleric',
+        'campaign': 'Campaign 3',
+        'image': 'https://static.wikia.nocookie.net/criticalrole/images/f/fd/Fcg.jpg/revision/latest?cb=20211022030254'
+    },
+    'imogen': {
+        'character': 'Imogen Temult',
+        'actor': 'Laura Bailey',
+        'class': 'Sorcerer',
+        'campaign': 'Campaign 3',
+        'image': 'https://static.wikia.nocookie.net/criticalrole/images/2/25/LauraImogen.png/revision/latest?cb=20211022030117'
+    },
+    'laudna': {
+        'character': 'Laudna',
+        'actor': 'Marisha Ray',
+        'class': ['Warlock', 'Sorcerer'],
+        'campaign': 'Campaign 3',
+        'image': 'https://static.wikia.nocookie.net/criticalrole/images/2/2b/Laudna_-_Linda_Lithen.jpg/revision/latest?cb=20220205112845'
+    },
+    'orym': {
+        'character': 'Orym',
+        'actor': `Liam O'Brien`,
+        'class': 'Fighter',
+        'campaign': 'Campaign 3',
+        'image': 'https://static.wikia.nocookie.net/criticalrole/images/6/6c/Orym_-_Hannah_Friederichs.jpg/revision/latest?cb=20210628230852'
+    },
     'unknown': {
         'name': 'Critical fail! Looks like your character does not exist',
         'actor': 'Critical fail! Looks like your name does not exist',
