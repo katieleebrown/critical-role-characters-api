@@ -24,7 +24,7 @@
         <p>Upvote your favorite Critical Role character! Don't see your faves? Add them to our list!</p>
 
         <section class="characterHolder">
-            <% for(let i=0; i<info.length; i++) {%>
+            <% for (let i=0; i < info.length; i++) {%>
                 <section class="card">
                     <img class="squareImg" src="<%= info[i].image %>">
                     <div class="charInfo">
@@ -40,7 +40,8 @@
                         </p>
                         <p>Campaign: <%= info[i].campaign %>
                         </p>
-                    </div>
+                        <i class="fa-solid fa-dice-d20"></i>
+                        <i class="fa-solid fa-trash"></i>
                 </section>
                 <% } %>
 
@@ -51,13 +52,14 @@
                         <form action="/addCharacter" method="POST">
                             <section class="formBox">
                                 <label for="characterName">Character Name:</label>
-                                <input type="text" id="characterName" name="characterName" placeholder="Character Name">
+                                <input type="text" name="characterName" placeholder="Character Name">
                             </section>
 
                             <!-- Need this dropdown to populate from current actor list -->
                             <section class="formBox">
+                                <!-- onchange="checkvalue(this.value) -->
                                 <label for="actorName">Actor:</label>
-                                <select id="actorName" name="actorName" onchange="checkvalue(this.value)">
+                                <select name="actorName">
                                     <% for (let i=0; i<info.length; i++) {%>
                                         <option value="<%= info[i].actorIndex">
                                             <%= info[i].actor %>
@@ -65,12 +67,12 @@
                                         }
                                         <option value="other">Other</option>
                                 </select>
-                                <input type="text" name="otherActor" id="otherActor" style="display:none">
+                                <!-- <input type="text" name="actorName" style="display:none"> -->
                             </section>
 
                             <section class="formBox">
                                 <label for="charClass">Character Class:</label>
-                                <select name="class" id="charClass">
+                                <select name="class">
                                     <option value="artificer">Artificer</option>
                                     <option value="barbarian">Barbarian</option>
                                     <option value="bard">Bard</option>
@@ -89,7 +91,7 @@
 
                             <section class="formBox">
                                 <label for="campaign">Campaign:</label>
-                                <select name="campaign" id="campaign">
+                                <select name="campaign">
                                     <option value="voxMachina">Campaign 1: Vox Machina</option>
                                     <option value="mightyNein">Campaign 2: Mighty Nein</option>
                                     <option value="bellsHells">Campaign 3: Bell's Hells</option>
@@ -101,14 +103,13 @@
 
                             <section class="formBox">
                                 <label for="imgUrl">Image URL:</label>
-                                <input type="text" name="imgUrl" id="imgUrl" value="Image URL here">
+                                <input type="text" name="imgUrl" value="Image URL here">
                             </section>
                         </form>
 
                         <button id="addCharacter" type="button">Let's Roll</button>
                     </section>
         </section>
-
 
     </main>
 

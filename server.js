@@ -1,15 +1,25 @@
 const express = require('express')
 const app = express()
+const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
+app.use(cors())
 const PORT = 8000
+require('dotenv').config()
 
-MongoClient.connect()
+let db,
+    dcConnectionStr = process.env.DB_STRING,
+    dbName = 'crit-role'
+
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+    .then(client => {
+        console.log(`Connected to ${dbName} Database`)
+        db = client.db(dbName)
+    })
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors())
 
 app.get('/', (request, response) => {
     db.collection('characters-and-players').find().toArray()
@@ -36,8 +46,20 @@ app.put('/addOneLike'), (request, response) => {
     db.collection('characters-and-players').updateOne({
         name: request.body.characterNameS,
         actor: request.body.actorNameS, class: request.body.charClassS, campaign: request.body.campaignS,
-        image: request.body.imgUrlS, likes: 0
+        image: request.body.imgUrlS, likes: request.body.likesS
+    }, {
+        $set: {
+            likes: request.body.likesS + 1
+        }
+    }, {
+        sort: { _id: -1 },
+        upsert: true
     })
+        .then(result => {
+            console.log('Added One Like')
+            response.json('Like Added')
+        })
+        .catch(error => console.error(error))
 }
 
 app.listen(process.env.PORT || PORT, () => {
@@ -46,7 +68,9 @@ app.listen(process.env.PORT || PORT, () => {
 
 // app.delete('deleteCharacter', (request, response) => {
 //     db.collection('characters-and-players').deleteOne({
-
+            // name: request.body.characterNameS,
+            // actor: request.body.actorNameS, class: request.body.charClassS, campaign: request.body.campaignS,
+            // image: request.body.imgUrlS, likes: request.body.likesS
 //     })
 //         .then(result => {
 //             console.log('Character Deleted')

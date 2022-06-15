@@ -1,34 +1,60 @@
-// Updates on page load - character boxes and actor name dropdown
-document.addEventListener("DOMContentLoaded", displayTheThings)
+const deleteText = document.querySelectorAll('.fa-trash')
+const thumbText = document.querySelectorAll('.fa-dice-20')
 
-function displayTheThings() {
-    updateActorDropdown()
-    displayCharacters()
-    console.log('The things have been displayed')
-}
+Array.from(deleteText).forEach((element) => {
+    element.addEventListener('click', deleteCharacter)
+})
 
-function updateActorDropdown() {
-    let dropdown = document.querySelector('#actorName')
-    dropdown.length = 1
+Array.from(thumbText).forEach((element) => {
+    element.addEventListener('click', addLike)
+})
 
-    let url = ``
-
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            let option
-
-            for (let i = 0; i < data.results.length; i++) {
-                option = document.createElement('option')
-                option.text = data.results[i].actor
-                option.value = data.results[i].actorIndex
-                dropdown.add(option)
-            }
+async function deleteCharacter() {
+    // Change this
+    const sName = this.parentNode.childNodes[1].innerText
+    const bName = this.parentNode.childNodes[3].innerText
+    try {
+        const response = await fetch('deleteCharacter', {
+            method: 'delete',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                // Change this
+                'stageNameS': sName,
+                'birthNameS': bName
+            })
         })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+
+    } catch (err) {
+        console.log(err)
+    }
 }
 
-function displayCharacters() {
+async function addLike() {
+    // Change this
+    const sName = this.parentNode.childNodes[1].innerText
+    const bName = this.parentNode.childNodes[3].innerText
+    const tLikes = Number(this.parentNode.childNodes[5].innerText)
+    try {
+        const response = await fetch('addOneLike', {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                // Change this
+                'stageNameS': sName,
+                'birthNameS': bName,
+                'likesS': tLikes
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
 
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 // Toggle "other" text box for actor name dropdown
