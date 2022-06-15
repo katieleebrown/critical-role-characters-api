@@ -5,15 +5,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Critical Role Character API</title>
+    <title>Critical Role Characters</title>
+
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts & Icons-->
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8745b435ef.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <h1>Who's the Critical Role Actor?</h1>
-    <p>Give us a Critical Role character and we'll tell you who plays it as well as some extra character details!</p>
-    <p>You'll get your data back in the form of 'character':{'name': 'name', 'actor': 'actor name', 'class': 'character
-        class(es)', 'campaign': 'campaign name/number'}</p>
-    <p>Please use localhost:8000/api/character-name</p>
+    <main>
+        <h1>Who's Your Favorite Critical Role Character?</h1>
+        <p>Upvote your favorite Critical Role character! Don't see your faves? Add them to our list!</p>
+
+        <section class="characterHolder">
+            <section class="card" style="display:none">
+
+            </section>
+
+            <!-- Create -->
+            <section class="card">
+                <form>
+                    <section class="formBox">
+                        <label for="characterName">Character Name:</label>
+                        <input type="text" id="characterName" name="characterName" value="Character Name">
+                    </section>
+
+                    <!-- Need this dropdown to populate from current actor list -->
+                    <section class="formBox">
+                        <label for="actorName">Actor:</label>
+                        <select id="actorName" name="actorName" onchange="checkvalue(this.value)">
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" name="aotherActor" id="otherActor" style="display:none">
+                    </section>
+
+                    <section class="formBox">
+                        <label for="charClass">Character Class:</label>
+                        <select name="class" id="charClass">
+                            <option value="artificer">Artificer</option>
+                            <option value="barbarian">Barbarian</option>
+                            <option value="bard">Bard</option>
+                            <option value="cleric">Cleric</option>
+                            <option value="druid">Druid</option>
+                            <option value="fighter">Fighter</option>
+                            <option value="monk">Monk</option>
+                            <option value="paladin">Paladin</option>
+                            <option value="ranger">Ranger</option>
+                            <option value="rogue">Rogue</option>
+                            <option value="sorcerer">Sorcerer</option>
+                            <option value="warlock">Warlock</option>
+                            <option value="wizard">Wizard</option>
+                        </select>
+                    </section>
+
+                    <section class="formBox">
+                        <label for="campaign">Campaign:</label>
+                        <select>
+                            <option value="voxMachina">Campaign 1: Vox Machina</option>
+                            <option value="mightyNein">Campaign 2: Mighty Nein</option>
+                            <option value="bellsHells">Campaign 3: Bell's Hells</option>
+                            <option value="exu">Exandria Unlimited</option>
+                            <option value="calamity">EXU: Calamity</option>
+                            <option value="oneShot">Misc. One Shot</option>
+                        </select>
+                    </section>
+
+                    <section class="formBox">
+                        <label for="imgUrl">Image URL:</label>
+                        <input type="text" name="imgUrl" id="imgUrl" value="Image URL here">
+                    </section>
+                </form>
+
+                <button id="addCharacter" type="button">Let's Roll</button>
+            </section>
+        </section>
+
+
+    </main>
+
+    <!-- <footer>
+        <p>Katie Brown Web Development</p>
+    </footer> -->
+
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

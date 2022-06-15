@@ -1,0 +1,63 @@
+/******************************************
+/* CSS
+/*******************************************/
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.characterHolder {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    border-radius: 5%;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.squareImg {
+    width: 100%;
+    height: auto;
+    margin: 2px;
+    padding: 5px;
+}
+
+.charInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formBox {
+    padding: 5px;
+}
+
+
+/******************************************
+/* MEDIA STYLES
+/*******************************************/
