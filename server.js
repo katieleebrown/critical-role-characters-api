@@ -2,12 +2,12 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient
-// const PORT = 8000
 require('dotenv').config()
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
-    dbName = 'crit-role'
+    dbName = 'crit-role',
+    collection = 'characters-and-players'
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
     .then(client => {
@@ -26,7 +26,7 @@ app.get('/', (request, response) => {
         .then(data => {
             response.render('index.ejs', { info: data })
         })
-        .catch(error => console.error(error))
+    //.catch(error => console.error(error))
 })
 
 app.post('/addCharacter', (request, response) => {
@@ -39,7 +39,7 @@ app.post('/addCharacter', (request, response) => {
             console.log('Character Added')
             response.redirect('/')
         })
-        .catch(error => console.error(error))
+    //.catch(error => console.error(error))
 })
 
 app.put('/addOneLike'), (request, response) => {
@@ -59,8 +59,10 @@ app.put('/addOneLike'), (request, response) => {
             console.log('Added One Like')
             response.json('Like Added')
         })
-        .catch(error => console.error(error))
+    //.catch(error => console.error(error))
 }
+
+const PORT = 8000
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`The server is now running on port ${PORT}`)

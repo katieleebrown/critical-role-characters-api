@@ -8,14 +8,13 @@
     <title>Critical Role Characters</title>
 
     <!-- external CSS link -->
-    <link rel="stylesheet" href="/public/css/normalize.css">
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
 
     <!-- Fonts & Icons-->
     <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Source+Sans+Pro:wght@400;600&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/8745b435ef.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -40,6 +39,9 @@
                         </p>
                         <p>Campaign: <%= info[i].campaign %>
                         </p>
+                    </div>
+                    <br>
+                    <div class="charInfo">
                         <i class="fa-solid fa-dice-d20"></i>
                         <span>
                             <%= info[i].likes %>
@@ -48,7 +50,7 @@
                 </section>
                 <% } %>
 
-                    <!-- Create -->
+
                     <section class="card">
                         <form action="/addCharacter" method="POST">
                             <section class="formBox">
@@ -56,19 +58,19 @@
                                 <input type="text" name="characterName" placeholder="Character Name">
                             </section>
 
-                            <!-- Need this dropdown to populate from current actor list -->
+
                             <section class="formBox">
-                                <!-- onchange="checkvalue(this.value) -->
+
                                 <label for="actorName">Actor:</label>
                                 <select name="actorName">
                                     <% for (let i=0; i < info.length; i++) {%>
-                                        <option value="<%= info[i].actorIndex">
+                                        <option value="<%= info[i].actorIndex %>">
                                             <%= info[i].actor %>
                                         </option>
-                                        }
-                                        <option value="other">Other</option>
+                                        <% } %>
+                                            <option value="other">Other</option>
                                 </select>
-                                <!-- <input type="text" name="actorName" style="display:none"> -->
+
                             </section>
 
                             <section class="formBox">

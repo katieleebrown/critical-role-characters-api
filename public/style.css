@@ -10,13 +10,15 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-body {
+body,
+main {
     width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
 .characterHolder {
@@ -28,14 +30,16 @@ body {
 }
 
 .card {
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     border: 3px solid black;
     border-radius: 5%;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    justify-items: stretch;
+    justify-content: stretch;
     padding: 5px;
 }
 
