@@ -8,8 +8,8 @@
     <title>Critical Role Characters</title>
 
     <!-- external CSS link -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/public/css/normalize.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 
     <!-- Fonts & Icons-->
     <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Source+Sans+Pro:wght@400;600&display=swap"
@@ -41,6 +41,9 @@
                         <p>Campaign: <%= info[i].campaign %>
                         </p>
                         <i class="fa-solid fa-dice-d20"></i>
+                        <span>
+                            <%= info[i].likes %>
+                        </span>
                         <i class="fa-solid fa-trash"></i>
                 </section>
                 <% } %>
@@ -58,7 +61,7 @@
                                 <!-- onchange="checkvalue(this.value) -->
                                 <label for="actorName">Actor:</label>
                                 <select name="actorName">
-                                    <% for (let i=0; i<info.length; i++) {%>
+                                    <% for (let i=0; i < info.length; i++) {%>
                                         <option value="<%= info[i].actorIndex">
                                             <%= info[i].actor %>
                                         </option>
@@ -115,7 +118,7 @@
         <p>Katie Brown Web Development</p>
     </footer> -->
 
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="/public/js/main.js"></script>
 </body>
 
 </html>

@@ -1,13 +1,12 @@
 const express = require('express')
 const app = express()
-const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
-app.use(cors())
-const PORT = 8000
+const MongoClient = require('mongodb').MongoClient
+// const PORT = 8000
 require('dotenv').config()
 
 let db,
-    dcConnectionStr = process.env.DB_STRING,
+    dbConnectionStr = process.env.DB_STRING,
     dbName = 'crit-role'
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
@@ -20,9 +19,10 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (request, response) => {
-    db.collection('characters-and-players').find().toArray()
+    db.collection('characters-and-players').find().sort({ likes: -1 }).toArray()
         .then(data => {
             response.render('index.ejs', { info: data })
         })
